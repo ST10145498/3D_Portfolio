@@ -1,19 +1,23 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
-import BoatModel from "./BoatModel";
+import Scene3D from "./Scene3D.jsx";
 
 export default function BoatScene() {
   return (
-    <div className="w-full h-screen">
-      <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
-        <Suspense fallback={<span>Loading boat...</span>}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[5, 5, 5]} />
-          <BoatModel scale={0.5} />
+    <div className="w-full h-[65vh] bg-black">
+      <Canvas camera={{ position: [5, 2, 8], fov: 45 }}>
+        {/* Lights */}
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[10, 10, 5]} intensity={1.2} />
+
+        {/* Load model */}
+        <Suspense fallback={null}>
+          <Scene3D />
           <Environment preset="sunset" />
-          <OrbitControls enableZoom={true} />
         </Suspense>
+
+        <OrbitControls enableDamping />
       </Canvas>
     </div>
   );
