@@ -6,3 +6,4 @@ export default {
   },
   plugins: [],
 };
+//The above is tailwin.config.js in the route 
