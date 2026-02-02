@@ -4,12 +4,12 @@ A stunning 3D portfolio website built with React, Three.js, and React Three Fibe
 
 ## Features
 
-- 🏝️ **Interactive 3D Island**: Drag to rotate and explore different sections
-- 🚤 **3D Boat Model**: Featured in the contact page with animations
-- 🎨 **Modern UI**: Clean, responsive design with smooth animations
-- 📱 **Mobile Friendly**: Optimized for all device sizes
-- 🎵 **Sound Controls**: Toggle background music (when audio file is added)
-- 🌟 **Smooth Transitions**: Page transitions and hover effects
+- **Interactive 3D Island**: Drag to rotate and explore different sections
+- **3D Boat Model**: Featured in the contact page with animations
+- **Modern UI**: Clean, responsive design with smooth animations
+- **Mobile Friendly**: Optimized for all device sizes
+- **Sound Controls**: Toggle background music (when audio file is added)
+- **Smooth Transitions**: Page transitions and hover effects
 
 ## Pages
 
