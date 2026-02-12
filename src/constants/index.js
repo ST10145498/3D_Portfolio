@@ -1,111 +1,164 @@
 import { meta, shopify, starbucks, tesla } from "../assets/images";
-import {
-    car,
-    contact,
-    css,
-    estate,
-    express,
-    git,
-    github,
-    html,
-    javascript,
-    linkedin,
-    mongodb,
-    motion,
-    mui,
-    nextjs,
-    nodejs,
-    pricewise,
-    react,
-    redux,
-    sass,
-    snapgram,
-    summiz,
-    tailwindcss,
-    threads,
-    typescript
-} from "../assets/icons";
+import { car, contact, estate, pricewise, snapgram, summiz, threads } from "../assets/icons";
+
+import javaIcon from "../icons/java/java-original.svg";
+import csharpIcon from "../icons/csharp/csharp-original.svg";
+import kotlinIcon from "../icons/kotlin/kotlin-original.svg";
+import htmlIcon from "../icons/html5/html5-original.svg";
+import cssIcon from "../icons/css3/css3-original.svg";
+import javascriptIcon from "../icons/javascript/javascript-original.svg";
+import sqlServerIcon from "../icons/microsoftsqlserver/microsoftsqlserver-original.svg";
+import mongodbIcon from "../icons/mongodb/mongodb-original.svg";
+import gitIcon from "../icons/git/git-original.svg";
+import githubIcon from "../icons/github/github-original.svg";
+import dotnetIcon from "../icons/dot-net/dot-net-original.svg";
+import visualStudioIcon from "../icons/visualstudio/visualstudio-original.svg";
+import androidStudioIcon from "../icons/androidstudio/androidstudio-original.svg";
+import firebaseIcon from "../icons/firebase/firebase-original.svg";
+import azureIcon from "../icons/azure/azure-original.svg";
+import dockerIcon from "../icons/docker/docker-original.svg";
+import nginxIcon from "../icons/nginx/nginx-original.svg";
+import githubActionsIcon from "../icons/githubactions/githubactions-original.svg";
+import figmaIcon from "../icons/figma/figma-original.svg";
+import xdIcon from "../icons/xd/xd-original.svg";
+
+import linkedinIcon from "../icons/linkedin/linkedin-original.svg";
 
 export const skills = [
     {
-        imageUrl: javascript,
+        imageUrl: javaIcon,
         name: "Java",
-        type: "Backend",
+        type: "Programming Languages",
     },
     {
-        imageUrl: css,
+        imageUrl: csharpIcon,
         name: "C#",
-        type: "Backend",
+        type: "Programming Languages",
     },
     {
-        imageUrl: javascript,
+        imageUrl: kotlinIcon,
         name: "Kotlin",
-        type: "Mobile",
+        type: "Programming Languages",
     },
     {
-        imageUrl: html,
+        imageUrl: htmlIcon,
         name: "HTML",
-        type: "Frontend",
+        type: "Programming Languages",
     },
     {
-        imageUrl: css,
+        imageUrl: cssIcon,
         name: "CSS",
-        type: "Frontend",
+        type: "Programming Languages",
     },
     {
-        imageUrl: javascript,
+        imageUrl: javascriptIcon,
         name: "JavaScript",
-        type: "Frontend",
+        type: "Programming Languages",
     },
     {
-        imageUrl: mongodb,
-        name: "SQL Server",
-        type: "Database",
+        imageUrl: sqlServerIcon,
+        name: "SQL",
+        type: "Programming Languages",
     },
     {
-        imageUrl: mongodb,
-        name: "MongoDB",
-        type: "Database",
-    },
-    {
-        imageUrl: react,
-        name: "React",
-        type: "Frontend",
-    },
-    {
-        imageUrl: nodejs,
-        name: "Node.js",
-        type: "Backend",
-    },
-    {
-        imageUrl: git,
-        name: "Git",
-        type: "Version Control",
-    },
-    {
-        imageUrl: github,
-        name: "GitHub",
-        type: "Version Control",
-    },
-    {
-        imageUrl: express,
+        imageUrl: dotnetIcon,
         name: "ASP.NET MVC",
-        type: "Backend",
+        type: "Frameworks & Technologies",
     },
     {
-        imageUrl: mui,
+        imageUrl: dotnetIcon,
         name: "WPF",
-        type: "Desktop",
+        type: "Frameworks & Technologies",
     },
     {
-        imageUrl: nextjs,
+        imageUrl: firebaseIcon,
+        name: "Firebase Authentication",
+        type: "Frameworks & Technologies",
+    },
+    {
+        imageUrl: androidStudioIcon,
+        name: "Android Development",
+        type: "Frameworks & Technologies",
+    },
+    {
+        imageUrl: dotnetIcon,
+        name: ".NET 8.0",
+        type: "Frameworks & Technologies",
+    },
+    {
+        imageUrl: sqlServerIcon,
+        name: "SQL Server (SSMS)",
+        type: "Databases",
+    },
+    {
+        imageUrl: mongodbIcon,
+        name: "MongoDB",
+        type: "Databases",
+    },
+    {
+        imageUrl: firebaseIcon,
+        name: "Firebase Firestore",
+        type: "Databases",
+    },
+    {
+        imageUrl: visualStudioIcon,
+        name: "Visual Studio",
+        type: "Tools & Platforms",
+    },
+    {
+        imageUrl: androidStudioIcon,
         name: "Android Studio",
-        type: "Mobile",
+        type: "Tools & Platforms",
     },
     {
-        imageUrl: typescript,
-        name: "Firebase",
-        type: "Backend",
+        imageUrl: gitIcon,
+        name: "Git",
+        type: "Tools & Platforms",
+    },
+    {
+        imageUrl: githubIcon,
+        name: "GitHub",
+        type: "Tools & Platforms",
+    },
+    {
+        imageUrl: azureIcon,
+        name: "Microsoft Azure",
+        type: "Tools & Platforms",
+    },
+    {
+        imageUrl: dockerIcon,
+        name: "Docker",
+        type: "Tools & Platforms",
+    },
+    {
+        imageUrl: nginxIcon,
+        name: "Nginx",
+        type: "Tools & Platforms",
+    },
+    {
+        imageUrl: githubActionsIcon,
+        name: "CI/CD Pipelines",
+        type: "Tools & Platforms",
+    },
+    {
+        imageUrl: figmaIcon,
+        name: "Figma",
+        type: "Design & Modelling",
+    },
+    {
+        imageUrl: figmaIcon,
+        name: "UML Diagrams",
+        type: "Design & Modelling",
+    },
+    {
+        imageUrl: figmaIcon,
+        name: "ERD",
+        type: "Design & Modelling",
+    },
+    {
+        imageUrl: xdIcon,
+        name: "Wireframes & UI Mockups",
+        type: "Design & Modelling",
     }
 ];
 
@@ -151,6 +204,30 @@ export const experiences = [
     },
 ];
 
+export const coreConcepts = [
+    "Data Structures",
+    "Algorithms & Complexity",
+    "Binary Search Trees (BST)",
+    "AVL Trees",
+    "Min Heaps",
+    "Graphs (BFS / DFS / MST)",
+    "Object-Oriented Programming (OOP)",
+    "MVVM Architecture",
+];
+
+export const softSkills = [
+    "Problem Solving",
+    "Analytical Thinking",
+    "Team Collaboration",
+    "Attention to Detail",
+    "Ability to Work Under Pressure",
+];
+
+export const spokenLanguages = [
+    "English (Home Language)",
+    "Afrikaans (Second Language)",
+];
+
 export const socialLinks = [
     {
         name: 'Contact',
@@ -159,12 +236,12 @@ export const socialLinks = [
     },
     {
         name: 'GitHub',
-        iconUrl: github,
-        link: 'https://github.com/kylegovender',
+        iconUrl: githubIcon,
+        link: 'https://github.com/ST10145498',
     },
     {
         name: 'LinkedIn',
-        iconUrl: linkedin,
+        iconUrl: linkedinIcon,
         link: 'https://www.linkedin.com/in/kyle-jeremiah-govender',
     }
 ];
@@ -175,41 +252,41 @@ export const projects = [
         theme: 'btn-back-red',
         name: 'E-Commerce Platform',
         description: 'Developed a full-stack e-commerce platform using Java Spring Boot and React, featuring user authentication, product management, and payment integration.',
-        link: 'https://github.com/kylegovender',
+        link: 'https://github.com/ST10145498',
     },
     {
         iconUrl: threads,
         theme: 'btn-back-green',
         name: 'Mobile Task Manager',
         description: 'Created a cross-platform mobile application using Kotlin and Android Studio for task management with real-time synchronization.',
-        link: 'https://github.com/kylegovender',
+        link: 'https://github.com/ST10145498',
     },
     {
         iconUrl: car,
         theme: 'btn-back-blue',
         name: 'Desktop Inventory System',
         description: 'Built a comprehensive inventory management system using C# and WPF with SQL Server database integration for small businesses.',
-        link: 'https://github.com/kylegovender',
+        link: 'https://github.com/ST10145498',
     },
     {
         iconUrl: snapgram,
         theme: 'btn-back-pink',
         name: 'Web Portfolio Dashboard',
         description: 'Designed and developed a responsive portfolio website using HTML, CSS, JavaScript, and modern web frameworks.',
-        link: 'https://github.com/kylegovender',
+        link: 'https://github.com/ST10145498',
     },
     {
         iconUrl: estate,
         theme: 'btn-back-black',
         name: 'Database Management Tool',
         description: 'Created a database management application with both SQL Server and MongoDB support, featuring data visualization and reporting.',
-        link: 'https://github.com/kylegovender',
+        link: 'https://github.com/ST10145498',
     },
     {
         iconUrl: summiz,
         theme: 'btn-back-yellow',
         name: 'Firebase Chat Application',
         description: 'Developed a real-time chat application using Firebase authentication and real-time database with modern UI/UX design.',
-        link: 'https://github.com/kylegovender',
+        link: 'https://github.com/ST10145498',
     }
 ];

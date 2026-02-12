@@ -3,7 +3,7 @@ import { Suspense, useState } from "react";
 
 import { CTA, Loader } from "../components";
 import { Boat } from "../models";
-import { experiences, skills } from "../constants";
+import { coreConcepts, experiences, skills, softSkills, spokenLanguages } from "../constants";
 
 const About = () => {
   const [currentAnimation, setCurrentAnimation] = useState("idle");
@@ -33,19 +33,76 @@ const About = () => {
 
       <div className='py-10 flex flex-col'>
         <h3 className='subhead-text'>My Skills</h3>
-
-        <div className='mt-16 flex flex-wrap gap-12'>
-          {skills.map((skill) => (
-            <div className='block-container w-20 h-20' key={skill.name}>
-              <div className='btn-back rounded-xl' />
-              <div className='btn-front rounded-xl flex justify-center items-center'>
-                <img
-                  src={skill.imageUrl}
-                  alt={skill.name}
-                  className='w-1/2 h-1/2 object-contain'
-                />
-              </div>
+        {[
+          "Programming Languages",
+          "Frameworks & Technologies",
+          "Databases",
+          "Tools & Platforms",
+          "Design & Modelling",
+        ].map((category) => (
+          <div key={category} className='mt-10'>
+            <h4 className='text-lg font-semibold text-slate-800'>{category}</h4>
+            <div className='mt-6 flex flex-wrap gap-12'>
+              {skills
+                .filter((skill) => skill.type === category)
+                .map((skill) => (
+                  <div className='block-container w-24 h-24' key={skill.name}>
+                    <div className='btn-back rounded-xl' />
+                    <div className='btn-front rounded-xl flex flex-col justify-center items-center gap-1'>
+                      <img
+                        src={skill.imageUrl}
+                        alt={skill.name}
+                        className='w-3/5 h-3/5 object-contain'
+                      />
+                      <span className='text-[10px] font-semibold text-slate-700 text-center leading-tight'>
+                        {skill.name}
+                      </span>
+                    </div>
+                  </div>
+                ))}
             </div>
+          </div>
+        ))}
+      </div>
+
+      <div className='py-10'>
+        <h3 className='subhead-text'>Core Computer Science Concepts</h3>
+        <div className='mt-6 flex flex-wrap gap-3'>
+          {coreConcepts.map((concept) => (
+            <span
+              key={concept}
+              className='px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium shadow-sm'
+            >
+              {concept}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className='py-10'>
+        <h3 className='subhead-text'>Soft Skills</h3>
+        <div className='mt-6 flex flex-wrap gap-3'>
+          {softSkills.map((skill) => (
+            <span
+              key={skill}
+              className='px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium shadow-sm'
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className='py-10'>
+        <h3 className='subhead-text'>Languages</h3>
+        <div className='mt-6 flex flex-wrap gap-3'>
+          {spokenLanguages.map((language) => (
+            <span
+              key={language}
+              className='px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium shadow-sm'
+            >
+              {language}
+            </span>
           ))}
         </div>
       </div>
