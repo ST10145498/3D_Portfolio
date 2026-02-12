@@ -1,42 +1,53 @@
-// import React from "react";
-// import Scene3D from "./components/Scene3D";
-// import "./index.css"; // make sure Tailwind styles load
-
-// export default function App() {
-//   return (
-//     <div className="w-screen h-screen">
-//       <Scene3D />
-//     </div>
-//   );
-// }
-
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Suspense, lazy } from "react";
 
 import { Footer, Navbar } from "./components";
-import { About, Contact, Home, Projects } from "./pages";
+import Home from "./pages/Home";
+
+const About = lazy(() => import("./pages/About"));
+const Skills = lazy(() => import("./pages/Skills"));
+const Projects = lazy(() => import("./pages/Projects"));
+const Contact = lazy(() => import("./pages/Contact"));
+
+const SectionFallback = () => (
+  <div className='max-container py-20'>
+    <div className='h-8 w-40 rounded-panel bg-surface/80 border border-border animate-pulse' />
+  </div>
+);
 
 const App = () => {
   return (
-    <main className='bg-slate-300/20'>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route
-            path='/*'
-            element={
-              <>
-                <Routes>
-                  <Route path='/about' element={<About />} />
-                  <Route path='/projects' element={<Projects />} />
-                  <Route path='/contact' element={<Contact />} />
-                </Routes>
-                <Footer />
-              </>
-            }
-          />
-        </Routes>
-      </Router>
+    <main>
+      <Navbar />
+
+      <section id='home' aria-label='Hero'>
+        <Home />
+      </section>
+
+      <section id='about' className='scroll-section' aria-label='About'>
+        <Suspense fallback={<SectionFallback />}>
+          <About />
+        </Suspense>
+      </section>
+
+      <section id='skills' className='scroll-section' aria-label='Skills'>
+        <Suspense fallback={<SectionFallback />}>
+          <Skills />
+        </Suspense>
+      </section>
+
+      <section id='projects' className='scroll-section' aria-label='Projects'>
+        <Suspense fallback={<SectionFallback />}>
+          <Projects />
+        </Suspense>
+      </section>
+
+      <section id='contact' className='scroll-section' aria-label='Contact'>
+        <Suspense fallback={<SectionFallback />}>
+          <Contact />
+        </Suspense>
+      </section>
+
+      <Footer />
     </main>
   );
 };

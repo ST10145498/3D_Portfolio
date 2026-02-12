@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const CTA = () => {
   return (
     <section className='cta'>
@@ -7,9 +5,9 @@ const CTA = () => {
         Have a project in mind? <br className='sm:block hidden' />
         Let's build something together!
       </p>
-      <Link to='/contact' className='btn'>
+      <a href='#contact' className='btn font-mono uppercase tracking-wide'>
         Contact
-      </Link>
+      </a>
     </section>
   );
 };

@@ -1,25 +1,56 @@
-import { Canvas } from "@react-three/fiber";
-import { Suspense, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-import { CTA, Loader } from "../components";
-import { Boat } from "../models";
-import { coreConcepts, experiences, skills, softSkills, spokenLanguages } from "../constants";
+import { CTA } from "../components";
+import { experiences } from "../constants";
 
 const About = () => {
-  const [currentAnimation, setCurrentAnimation] = useState("idle");
+  const shouldReduceMotion = useReducedMotion();
+
+  const reveal = shouldReduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 28 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.25 },
+        transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+      };
+
+  const listContainer = shouldReduceMotion
+    ? {}
+    : {
+        initial: "hidden",
+        whileInView: "show",
+        viewport: { once: true, amount: 0.2 },
+        variants: {
+          hidden: {},
+          show: {
+            transition: {
+              staggerChildren: 0.1,
+            },
+          },
+        },
+      };
+
+  const listItem = shouldReduceMotion
+    ? {}
+    : {
+        variants: {
+          hidden: { opacity: 0, y: 18 },
+          show: { opacity: 1, y: 0 },
+        },
+        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+      };
 
   return (
-    <section className='max-container'>
-      <h1 className='head-text'>
+    <div className='max-container'>
+      <motion.h1 className='head-text' {...reveal}>
         Hello, I'm{" "}
-        <span className='blue-gradient_text font-semibold drop-shadow'>
-          {" "}
+        <span className='accent-gradient_text font-semibold drop-shadow'>
           Kyle Jeremiah Govender
-        </span>{" "}
-        👋
-      </h1>
+        </span>
+      </motion.h1>
 
-      <div className='mt-5 flex flex-col gap-3 text-slate-500'>
+      <motion.div className='mt-6 max-w-3xl flex flex-col gap-4 text-text-muted leading-relaxed' {...reveal}>
         <p>
           I am a highly motivated and determined individual who thrives in
           challenging environments and performs well under pressure. I am
@@ -29,99 +60,30 @@ const About = () => {
           confident and collaborative team player, I am eager to add value
           wherever I can.
         </p>
-      </div>
-
-      <div className='py-10 flex flex-col'>
-        <h3 className='subhead-text'>My Skills</h3>
-        {[
-          "Programming Languages",
-          "Frameworks & Technologies",
-          "Databases",
-          "Tools & Platforms",
-          "Design & Modelling",
-        ].map((category) => (
-          <div key={category} className='mt-10'>
-            <h4 className='text-lg font-semibold text-slate-800'>{category}</h4>
-            <div className='mt-6 flex flex-wrap gap-12'>
-              {skills
-                .filter((skill) => skill.type === category)
-                .map((skill) => (
-                  <div className='block-container w-24 h-24' key={skill.name}>
-                    <div className='btn-back rounded-xl' />
-                    <div className='btn-front rounded-xl flex flex-col justify-center items-center gap-1'>
-                      <img
-                        src={skill.imageUrl}
-                        alt={skill.name}
-                        className='w-3/5 h-3/5 object-contain'
-                      />
-                      <span className='text-[10px] font-semibold text-slate-700 text-center leading-tight'>
-                        {skill.name}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className='py-10'>
-        <h3 className='subhead-text'>Core Computer Science Concepts</h3>
-        <div className='mt-6 flex flex-wrap gap-3'>
-          {coreConcepts.map((concept) => (
-            <span
-              key={concept}
-              className='px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium shadow-sm'
-            >
-              {concept}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className='py-10'>
-        <h3 className='subhead-text'>Soft Skills</h3>
-        <div className='mt-6 flex flex-wrap gap-3'>
-          {softSkills.map((skill) => (
-            <span
-              key={skill}
-              className='px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium shadow-sm'
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className='py-10'>
-        <h3 className='subhead-text'>Languages</h3>
-        <div className='mt-6 flex flex-wrap gap-3'>
-          {spokenLanguages.map((language) => (
-            <span
-              key={language}
-              className='px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium shadow-sm'
-            >
-              {language}
-            </span>
-          ))}
-        </div>
-      </div>
+      </motion.div>
 
       <div className='py-16'>
-        <h3 className='subhead-text'>Work Experience.</h3>
-        <div className='mt-5 flex flex-col gap-3 text-slate-500'>
+        <motion.h3 className='subhead-text' {...reveal}>
+          Work Experience.
+        </motion.h3>
+
+        <motion.div className='mt-4 flex flex-col gap-3 text-text-muted leading-relaxed' {...reveal}>
           <p>
             I've worked with all sorts of companies, leveling up my skills and
             teaming up with smart people. Here's the rundown:
           </p>
-        </div>
+        </motion.div>
 
-        <div className='mt-12 flex flex-col gap-12'>
-          {experiences.map((experience, index) => (
-            <div key={experience.company_name} className='flex flex-col md:flex-row gap-6 p-6 bg-white rounded-lg shadow-md'>
+        <motion.div className='mt-12 flex flex-col gap-12' {...listContainer}>
+          {experiences.map((experience) => (
+            <motion.div
+              key={experience.company_name}
+              className='surface-card flex flex-col md:flex-row gap-6'
+              {...listItem}
+            >
               <div className='flex-shrink-0'>
                 <div
-                  className='w-16 h-16 rounded-full flex items-center justify-center'
+                  className='w-16 h-16 rounded-full flex items-center justify-center border border-border'
                   style={{ backgroundColor: experience.iconBg }}
                 >
                   <img
@@ -134,14 +96,14 @@ const About = () => {
               <div className='flex-1'>
                 <div className='flex flex-col md:flex-row md:items-center md:justify-between mb-4'>
                   <div>
-                    <h3 className='text-black text-xl font-semibold' style={{fontFamily: 'Poppins, sans-serif'}}>
+                    <h3 className='font-heading text-text text-2xl font-semibold'>
                       {experience.title}
                     </h3>
-                    <p className='text-gray-600 font-medium text-base'>
+                    <p className='text-text-muted font-medium text-base'>
                       {experience.company_name}
                     </p>
                   </div>
-                  <span className='text-sm text-gray-500 mt-2 md:mt-0'>
+                  <span className='label-chip mt-2 md:mt-0'>
                     {experience.date}
                   </span>
                 </div>
@@ -149,22 +111,22 @@ const About = () => {
                   {experience.points.map((point, index) => (
                     <li
                       key={`experience-point-${index}`}
-                      className='text-gray-600 font-normal text-sm'
+                      className='text-text-muted font-normal text-sm leading-relaxed'
                     >
                       {point}
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
-      <hr className='border-slate-200' />
+      <hr className='border-border/80' />
 
       <CTA />
-    </section>
+    </div>
   );
 };
 

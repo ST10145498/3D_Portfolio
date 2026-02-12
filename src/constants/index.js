@@ -232,7 +232,7 @@ export const socialLinks = [
     {
         name: 'Contact',
         iconUrl: contact,
-        link: '/contact',
+        link: '#contact',
     },
     {
         name: 'GitHub',
@@ -290,3 +290,4 @@ export const projects = [
         link: 'https://github.com/ST10145498',
     }
 ];
+

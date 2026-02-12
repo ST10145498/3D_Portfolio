@@ -1,6 +1,7 @@
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import { Boat } from "../models";
 import { Loader } from "../components";
@@ -10,6 +11,16 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [currentAnimation, setCurrentAnimation] = useState("idle");
+  const shouldReduceMotion = useReducedMotion();
+
+  const reveal = shouldReduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 28 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.2 },
+        transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+      };
 
   const handleChange = ({ target: { name, value } }) => {
     setForm({ ...form, [name]: value });
@@ -62,16 +73,16 @@ const Contact = () => {
   };
 
   return (
-    <section className='relative flex lg:flex-row flex-col max-container'>
-      <div className='flex-1 min-w-[50%] flex flex-col'>
+    <section className='relative flex lg:flex-row flex-col gap-8 max-container'>
+      <motion.div className='flex-1 min-w-[50%] flex flex-col surface-card' {...reveal}>
         <h1 className='head-text'>Get in Touch</h1>
 
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className='w-full flex flex-col gap-7 mt-14'
+          className='w-full flex flex-col gap-7 mt-10'
         >
-          <label className='text-gray-800 font-semibold'>
+          <label className='text-text font-semibold text-sm tracking-wide uppercase font-mono'>
             Name
             <input
               type='text'
@@ -85,7 +96,7 @@ const Contact = () => {
               onBlur={handleBlur}
             />
           </label>
-          <label className='text-gray-800 font-semibold'>
+          <label className='text-text font-semibold text-sm tracking-wide uppercase font-mono'>
             Email
             <input
               type='email'
@@ -99,7 +110,7 @@ const Contact = () => {
               onBlur={handleBlur}
             />
           </label>
-          <label className='text-gray-800 font-semibold'>
+          <label className='text-text font-semibold text-sm tracking-wide uppercase font-mono'>
             Your Message
             <textarea
               name='message'
@@ -123,9 +134,9 @@ const Contact = () => {
             {loading ? "Sending..." : "Submit"}
           </button>
         </form>
-      </div>
+      </motion.div>
 
-      <div className='lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]'>
+      <div className='lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px] rounded-panel border border-border bg-surface/45 backdrop-blur-sm overflow-hidden shadow-panel'>
         <Canvas
           camera={{
             position: [0, 0, 5],

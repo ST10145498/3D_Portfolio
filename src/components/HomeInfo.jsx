@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import { arrow } from "../assets/icons";
 
 const HomeInfo = ({ currentStage }) => {
@@ -21,10 +19,10 @@ const HomeInfo = ({ currentStage }) => {
           Skilled in Java, C#, Kotlin, JavaScript <br /> and many other technologies
         </p>
 
-        <Link to='/about' className='neo-brutalism-white neo-btn'>
+        <a href='#about' className='neo-brutalism-white neo-btn'>
           Learn more
           <img src={arrow} alt='arrow' className='w-4 h-4 object-contain' />
-        </Link>
+        </a>
       </div>
     );
   }
@@ -36,10 +34,10 @@ const HomeInfo = ({ currentStage }) => {
           Passionate about creating innovative solutions <br /> Check out my projects and achievements
         </p>
 
-        <Link to='/projects' className='neo-brutalism-white neo-btn'>
+        <a href='#projects' className='neo-brutalism-white neo-btn'>
           Visit my portfolio
           <img src={arrow} alt='arrow' className='w-4 h-4 object-contain' />
-        </Link>
+        </a>
       </div>
     );
   }
@@ -51,10 +49,10 @@ const HomeInfo = ({ currentStage }) => {
         Need a project done or looking for a dev? <br/> I'm just a few keystrokes away
       </p>
 
-      <Link to='/contact' className='neo-brutalism-white neo-btn'>
+      <a href='#contact' className='neo-brutalism-white neo-btn'>
         Let's talk
         <img src={arrow} alt='arrow' className='w-4 h-4 object-contain' />
-      </Link>
+      </a>
     </div>
     );
   }
